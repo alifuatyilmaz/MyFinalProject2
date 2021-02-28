@@ -17,7 +17,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         // EntityFramework klasörüne sağ tık.Burada projeye NuGet packages ekliyoruz. entityframeworkcore.sql v3.1.11
         // Burdan kestiğimiz kodu Core katmanında EntityFramework klasörü altında EfEntityRepositoryBase içine yapıştır. Çünkü ortak kullanılacak.
-        public List<ProductDetailDto> GetProductDetails()
+        public List<ProductDetailDto> GetProductDetails() // IProductDal'ın içinde tanımlanmış. ProductDetailDto tipin Entities içinde tanımlanmış
         {
             using (NorthwindContext context = new NorthwindContext())
             {

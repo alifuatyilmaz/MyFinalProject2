@@ -12,7 +12,7 @@ namespace Business.Abstract
         IDataResult<List<Product>> GetAll(); // Business katmanı her iki katmandan da referans almalı.Her iki katmanın bilgilerini kullanıyor.
         IDataResult<List<Product>> GetAllByCategoryId(int id); // CategoryId'sine göre tüm listeyi getir.
         IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max);
-        IDataResult<List<ProductDetailDto>> GetProductDetails();
+        IDataResult<List<ProductDetailDto>> GetProductDetails(); // En son yazılacak yer.
         IDataResult<Product> GetById(int productId);
         IResult Add(Product product);
         IResult Update(Product product);

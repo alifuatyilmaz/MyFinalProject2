@@ -51,7 +51,7 @@ namespace ConsoleUI
             ProductManager productManager = new ProductManager(new EfProductDal() // Burada InMemoryProductDal yerine EfProductDal kullan(Sisteminin değiştiğini düşün).
                 , new CategoryManager(new EfCategoryDal()));
 
-            var result = productManager.GetProductDetails();
+            var result = productManager.GetProductDetails(); // Business katmanından ProductService'de çağırılıyor.
 
             if (result.Success==true)
             {

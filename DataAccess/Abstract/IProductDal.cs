@@ -10,7 +10,7 @@ namespace DataAccess.Abstract
     public interface IProductDal:IEntityRepository<Product>// Bu Product ile ilgili yapacağımız operasyonları içeren bir interface. SQL komutları select ,update, delete ,insert vb.
                                                            // Böyle tanımlayarak aşağıdaki kodları kullanmaya gerek kalmıyor.
     {
-        List<ProductDetailDto> GetProductDetails();
+        List<ProductDetailDto> GetProductDetails(); // Ürünün detaylarını getir.
 
         //List<Product> GetAll(); // Başka katmandan veri kullanmak için referans verilmeli.DataAccess'e sağ tık Add->Project References ile Entities katmanından referans alıyoruz.
         //void Add(Product product);
