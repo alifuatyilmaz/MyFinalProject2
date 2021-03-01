@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Business.Constants
 {
-    public static class Messages
+    public static class Messages // Proje sabitlerini Constants adlı klasör oluştur. İçine koy. Burada sabit mesajlarımızı yazıyoruz.
     {
         public static string ProductAdded = "Ürün eklendi";
         public static string ProductNameInvalid = "Ürün ismi geçersiz";

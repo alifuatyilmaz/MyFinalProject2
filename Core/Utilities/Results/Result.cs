@@ -7,7 +7,7 @@ namespace Core.Utilities.Results
     public class Result : IResult
     {
 
-        public Result(bool success, string message):this(success)
+        public Result(bool success, string message):this(success) // this classın kendisini temsil ediyor(Result). this(success) tek parametreli constructor'u temsil ediyor. Bu satır 2 constructor'ı da kapsıyor.
         {
             Message = message;
         }

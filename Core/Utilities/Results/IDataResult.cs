@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Core.Utilities.Results
 {
-    public interface IDataResult<T>:IResult
+    public interface IDataResult<T>:IResult // IResult'ta zeten mesaj ve işlem sonucu mevcut.
     {
-        T Data { get; }
+        T Data { get; } // Mesaj, işlem sonucu ve datayı içerecek.
     }
 }

@@ -29,8 +29,6 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
-        //22.15 DERSTEYİZ
-
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
@@ -46,13 +44,9 @@ namespace Business.Concrete
 
             _productDal.Add(product);
 
-            return new SuccessResult(Messages.ProductAdded);
-
-
-           
-            //23:10 Dersteyiz
+            return new SuccessResult(Messages.ProductAdded); // Buraya Constants klasöründen Messages.cs'deki mesajlardan birini alacak.
+ 
         }
-
 
         public IDataResult<List<Product>> GetAll()
         {
@@ -71,6 +65,7 @@ namespace Business.Concrete
 
         public IDataResult<Product> GetById(int productId)
         {
+            //return _productDal.Get(p => p.ProductId == productId);
             return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
         }
 
@@ -81,7 +76,7 @@ namespace Business.Concrete
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            if (DateTime.Now.Hour == 23)
+            if (DateTime.Now.Hour == 23) // Her gün saat 23'de sistemin listelemeyi kapatmasını istiyoruz.
             {
                 return new ErrorDataResult<List<ProductDetailDto>>(Messages.MaintenanceTime);
             }
