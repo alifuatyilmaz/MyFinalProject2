@@ -34,8 +34,8 @@ namespace WebAPI
             //AOP
             //Postsharp
             services.AddControllers();
-            //services.AddSingleton<IProductService,ProductManager>();
-            //services.AddSingleton<IProductDal, EfProductDal>();
+            //services.AddSingleton<IProductService,ProductManager>(); // Bana arkaplanda bir referans oluþtur.Eðer biri constructorda IProductService isterse ona arkaplanda ProductManager new'i ver. Arkaplanda bizim yerimize new'liyor
+            //services.AddSingleton<IProductDal, EfProductDal>(); // AddSingleton -> Eðer içinde data tutmuyorsa kullanýyoruz.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

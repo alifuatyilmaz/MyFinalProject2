@@ -7,6 +7,7 @@ using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -22,11 +23,17 @@ namespace Business.Concrete
     {
         IProductDal _productDal; // Ne EntityFramework ne de InMemory ismi geçecek.Soyut nesneyle bağlantı kuracak. 
         ICategoryService _categoryService;
+        private EfProductDal efProductDal;
 
         public ProductManager(IProductDal productDal,ICategoryService categoryService)
         {
             _productDal = productDal;
             _categoryService = categoryService;
+        }
+
+        public ProductManager(EfProductDal efProductDal)
+        {
+            this.efProductDal = efProductDal;
         }
 
         [ValidationAspect(typeof(ProductValidator))]
@@ -50,7 +57,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour == 1)
+            if (DateTime.Now.Hour == 22)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }

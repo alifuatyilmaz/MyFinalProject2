@@ -11,20 +11,56 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    //Controllers klasörüne sağ tık Add->Controller'ı seç. API'yi seç API-Controller-Empty seç.Sonra ekle.
+    //Postman download et. Veriyi JSON ile düzenli hale getirebilirsin.
+    [Route("api/[controller]")] // Bu siteyi yaparken insanlar bize nasıl ulaşsın onu belirliyor. (localhost:44314/api/products) bu sayfayı çağırır.
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        //Loosely coupled
-        //naming convention
-        //IoC Container -- Inversion of Control
+        /*
+        [HttpGet]
+        public string Get()
+        {
+            return "Merhaba";
+        }
+        */
+        /*
+        [HttpGet]
+        public List<Product> Get() // WebAPI üzerine sağ tık Add->Referances ekle.ConsoleUI dışındakileri ver.
+        {
+            return new List<Product>
+            {
+                new Product{ProductId=1,ProductName="Elma"},
+                new Product{ProductId=2,ProductName="Armut" },
+            };
+        }
+        */
+        /*
+        [HttpGet]
+        public string Get()
+        {
+            IProductService productService = new ProductManager(new EfProductDal());
+            var result = productService.GetAll();
+            return result.Message;
+        }
+        */
+        /*
+        [HttpGet]
+        public List<Product> Get() // Ürünleri listeler
+        {
+            IProductService productService = new ProductManager(new EfProductDal());
+            var result = productService.GetAll();
+            return result.Data;
+        }
+        */
+        
         IProductService _productService;
 
         public ProductsController(IProductService productService)
         {
             _productService = productService;
         }
-
+        
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
@@ -38,7 +74,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
 
         }
-
+        
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
@@ -52,7 +88,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Product product)
+        public IActionResult Add(Product product) 
         {
             var result = _productService.Add(product);
             if (result.Success)
@@ -61,10 +97,5 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
-
     }
 }
-
-
-//22.05 DERSTEYİZ

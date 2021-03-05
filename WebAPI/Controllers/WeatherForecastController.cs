@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
+    // Controller bizim sistemimizi kullanıcak olan kullanıcılar bize hangi operasyonlar için ve nasıl istekte bulunabilirleri biz controllerda yazıyoruz.
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
